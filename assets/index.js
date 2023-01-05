@@ -89,20 +89,19 @@ var finances = [
 
 let total_months = finances.length; // total number of array elements
 
-let second_field = finances.map(function(x) {return x[1]}) // values of second field of array
+let second_field = finances.map(function(a) {return a[1]}) // values of second field of array
 let total_amount = second_field.reduce(function(a, b) {return a + b});  // sum of second field values
 
-let average_change = total_amount / total_months; 
+let changes = second_field.map(function(v, i, a) {return (a[i-1]) - a[i]}); // calculates and stores monthly changes in a new array
 
-alert(`Financial Analysis
-----------------------------
-Total Months: ${total_months}
-Total: $${total_amount.toFixed(2)} 
-Average Change: $${average_change.toFixed(2)}`); 
+let filtered_changes = changes.filter(function(a) {return !Number.isNaN(a)}); // filters NaN values
+
+let changes_sum  = filtered_changes.reduce((prev, a) => prev + a, 0); // sum of filtered monthly changes
+let average_change = changes_sum / (total_months - 1); // first NaN value was filtered
 
 console.log(`Financial Analysis
 ----------------------------
 Total Months: ${total_months}
-Total: $${total_amount.toFixed(2)} 
-Average Change: $${average_change.toFixed(2)}`); 
+Total: $${total_amount.toFixed(2)}
+Average Change: $${average_change.toFixed(2)}`);
 
