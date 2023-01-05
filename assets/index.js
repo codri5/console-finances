@@ -86,3 +86,17 @@ var finances = [
   ['Jan-2017', 138230],
   ['Feb-2017', 671099],
 ];
+
+let total_months = finances.length; // total number of array elements
+
+let second_field = finances.map(function(x) {return x[1]}) // values of second field of array
+let total_amount = second_field.reduce(function(a, b) {return a + b});  // sum of second field values
+
+let average_change = total_amount / total_months; 
+
+alert(`Financial Analysis
+----------------------------
+Total Months: ${total_months}
+Total: $${total_amount.toFixed(2)} 
+Average Change: $${average_change.toFixed(2)}`); 
+
