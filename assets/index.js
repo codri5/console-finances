@@ -100,3 +100,9 @@ Total Months: ${total_months}
 Total: $${total_amount.toFixed(2)} 
 Average Change: $${average_change.toFixed(2)}`); 
 
+console.log(`Financial Analysis
+----------------------------
+Total Months: ${total_months}
+Total: $${total_amount.toFixed(2)} 
+Average Change: $${average_change.toFixed(2)}`); 
+
