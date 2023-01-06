@@ -89,27 +89,21 @@ var finances = [
 
 let total_months = finances.length; // total number of array elements
 
-let second_field = finances.map(function(a) {return a[1]}) // values of second field of array
-let total_amount = second_field.reduce(function(a, b) {return a + b});  // sum of second field values
+let second_field = finances.map(function(a) {return a[1]}) // stores values of second field of array in new array
+let total_amount = second_field.reduce(function(a, b) {return a + b});  // sum of new array values
 
-let changes = second_field.map(function(v, i, a) {return (a[i]) - a[i-1]}); // calculates and stores monthly changes in a new array
-
-let filtered_changes = changes.filter(function(a) {return !Number.isNaN(a)}); // filters NaN values
-
+let changes = second_field.map(function(v, i, a) {return (a[i]) - a[i - 1]}); // stores and calculates monthly differences in new array
+let filtered_changes = changes.filter(function(a) {return !Number.isNaN(a)}); // filters values that are not numbers
 let changes_sum  = filtered_changes.reduce(function(a, b) {return a + b}); // sum of filtered monthly changes
-let average_change = changes_sum / (total_months - 1); // first NaN value was filtered out
+let average_change = changes_sum / (total_months - 1); // first NaN value was filtered out 
 
-let first_field = finances.map(function(a) {return a[0]});
-
-let greatest_increase = Math.max(...filtered_changes);
-let greatest_decrease = Math.min(...filtered_changes);
-
-let index_max = filtered_changes.indexOf(Math.max(...filtered_changes));
-let index_min = filtered_changes.indexOf(Math.min(...filtered_changes));
-
-let increase = first_field[index_max + 1];
+let first_field = finances.map(function(a) {return a[0]}); // stores values of first field of array in new array
+let greatest_increase = Math.max(...filtered_changes); // finds largest number
+let greatest_decrease = Math.min(...filtered_changes); // finds smallest number
+let index_max = filtered_changes.indexOf(greatest_increase); // finds index of largest number
+let index_min = filtered_changes.indexOf(greatest_decrease); // finds index of smallest number
+let increase = first_field[index_max + 1]; // increased index by 1 as NaN value was filtered
 let decrease = first_field[index_min + 1]; 
-
 let final_increase = `${increase} ($${greatest_increase})`;
 let final_decrease = `${decrease} ($${greatest_decrease})`;
 
