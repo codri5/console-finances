@@ -99,9 +99,24 @@ let filtered_changes = changes.filter(function(a) {return !Number.isNaN(a)}); //
 let changes_sum  = filtered_changes.reduce((prev, a) => prev + a, 0); // sum of filtered monthly changes
 let average_change = changes_sum / (total_months - 1); // first NaN value was filtered
 
+let first_field = finances.map(function(a) {return a[0]})
+
+let greatest_increase = Math.max(...filtered_changes);
+let greatest_decrease = Math.min(...filtered_changes);
+
+let index_max = filtered_changes.indexOf(Math.max(...filtered_changes));
+let index_min = filtered_changes.indexOf(Math.min(...filtered_changes));
+
+let increase = first_field[index_max + 1];
+let decrease = first_field[index_min + 1]; 
+
+let final_increase = `${increase} ($${greatest_increase})`;
+let final_decrease = `${decrease} ($${greatest_decrease})`;
+
 console.log(`Financial Analysis
 ----------------------------
 Total Months: ${total_months}
 Total: $${total_amount.toFixed(2)}
-Average Change: $${average_change.toFixed(2)}`);
-
+Average Change: $${average_change.toFixed(2)}
+Greatest Increase in Profits: ${final_increase}
+Greatest Decrease in Profits: ${final_decrease}`);
