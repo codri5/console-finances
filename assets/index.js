@@ -92,14 +92,14 @@ let total_months = finances.length; // total number of array elements
 let second_field = finances.map(function(a) {return a[1]}) // values of second field of array
 let total_amount = second_field.reduce(function(a, b) {return a + b});  // sum of second field values
 
-let changes = second_field.map(function(v, i, a) {return (a[i-1]) - a[i]}); // calculates and stores monthly changes in a new array
+let changes = second_field.map(function(v, i, a) {return (a[i]) - a[i-1]}); // calculates and stores monthly changes in a new array
 
 let filtered_changes = changes.filter(function(a) {return !Number.isNaN(a)}); // filters NaN values
 
-let changes_sum  = filtered_changes.reduce((prev, a) => prev + a, 0); // sum of filtered monthly changes
-let average_change = changes_sum / (total_months - 1); // first NaN value was filtered
+let changes_sum  = filtered_changes.reduce(function(a, b) {return a + b}); // sum of filtered monthly changes
+let average_change = changes_sum / (total_months - 1); // first NaN value was filtered out
 
-let first_field = finances.map(function(a) {return a[0]})
+let first_field = finances.map(function(a) {return a[0]});
 
 let greatest_increase = Math.max(...filtered_changes);
 let greatest_decrease = Math.min(...filtered_changes);
