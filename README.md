@@ -10,7 +10,7 @@ N/A
 
 ## Usage
 
-To use this application, open the Chrome DevTools by pressing Command+Option+I (MacOS) or Control+Shift+I (Windows). A console panel will open either below or on the side of the webpage in the browser. There you will see a list which contains values for the analysis performed.
+To use this application, got to: https://codri5.github.io/console-finances and open the Chrome DevTools by pressing Command+Option+I (MacOS) or Control+Shift+I (Windows). A console panel will open either below or on the side of the webpage in the browser. There you will see a list which contains values for the analysis performed.
 
 ## Credits
 
