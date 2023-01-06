@@ -1,2 +1,23 @@
-# console-finances
-An application that analyses financial records.
+# Console Finances
+
+## Description
+
+This application was built to analyse financial records.
+
+## Installation
+
+N/A
+
+## Usage
+
+To use this application, open the Chrome DevTools by pressing Command+Option+I (MacOS) or Control+Shift+I (Windows). A console panel will open either below or on the side of the webpage in the browser. There you will see a list which contains values for the analysis performed.
+
+## Credits
+
+N/A
+
+## License
+
+Please refer to the LICENSE in the repo.
+
+
